@@ -1,0 +1,62 @@
+import pandas as pd
+from io import StringIO
+
+# Dados fornecidos para o CSV (mesmo da microatividade anterior)
+dados_csv = """ID;Duration;Date;Pulse;Maxpulse;Calories
+0;60;'2020/12/01';110;130;4091
+1;60;'2020/12/02';117;145;4790
+2;60;'2020/12/03';103;135;3400
+3;45;'2020/12/04';109;175;2824
+4;45;'2020/12/05';117;148;4060
+5;60;'2020/12/06';102;127;3000
+6;60;'2020/12/07';110;136;3740
+7;450;'2020/12/08';104;134;2533
+8;30;'2020/12/09';109;133;1951
+9;60;'2020/12/10';98;124;2690
+10;60;'2020/12/11';103;147;3293
+11;60;'2020/12/12';100;120;2507
+12;60;'2020/12/12';100;120;2507
+13;60;'2020/12/13';106;128;3453
+14;60;'2020/12/14';104;132;3793
+15;60;'2020/12/15';98;123;2750
+16;60;'2020/12/16';98;120;2152
+17;60;'2020/12/17';100;120;3000
+18;45;'2020/12/18';90;112;NaN
+19;60;'2020/12/19';103;123;3230
+20;45;'2020/12/20';97;125;2430
+21;60;'2020/12/21';108;131;3642
+22;45;NaN;100;119;2820
+23;60;'2020/12/23';130;101;3000
+24;45;'2020/12/24';105;132;2460
+25;60;'2020/12/25';102;126;3345
+26;60;20201226;100;120;2500
+27;60;'2020/12/27';92;118;2410
+28;60;'2020/12/28';103;132;NaN
+29;60;'2020/12/29';100;132;2800
+30;60;'2020/12/30';102;129;3803
+31;60;'2020/12/31';92;115;2430"""
+
+# 1. Criar o DataFrame a partir dos dados CSV
+df = pd.read_csv(StringIO(dados_csv), delimiter=';')
+
+print("Dataset completo possui", len(df), "linhas")
+print("=" * 60)
+
+# 2. Imprimir as primeiras 10 linhas do conjunto de dados
+print("PRIMEIRAS 10 LINHAS DO CONJUNTO DE DADOS:")
+print("=" * 60)
+print(df.head(10))
+
+print("\n" + "=" * 60)
+
+# 3. Imprimir as últimas 10 linhas do conjunto de dados
+print("ÚLTIMAS 10 LINHAS DO CONJUNTO DE DADOS:")
+print("=" * 60)
+print(df.tail(10))
+
+print("\n" + "=" * 60)
+print("INFORMAÇÕES ADICIONAIS:")
+print("=" * 60)
+print(f"• Método head(10): Exibe as primeiras 10 linhas (índices 0 a 9)")
+print(f"• Método tail(10): Exibe as últimas 10 linhas (índices {len(df)-10} a {len(df)-1})")
+print(f"• Por padrão, head() e tail() exibem 5 linhas se não especificado o parâmetro")
